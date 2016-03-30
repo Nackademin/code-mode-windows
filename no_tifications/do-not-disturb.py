@@ -5,7 +5,7 @@ import win32con
 import win32gui
 import time
 from _winreg import *
-#Returns True om notifications are enabled in Windows.
+#Returns True if notifications are enabled in Windows.
 def isNotificationsOn():
 	aReg = ConnectRegistry(None,HKEY_CURRENT_USER)
 	aKey = OpenKey(aReg, r"SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings")
@@ -29,7 +29,7 @@ def toggleNotifications(activeWindow,meddelandecenter):
 	if menu <= 0:
 		print("Kunde inte aktivera menyn")
 		return
-	#Find the menus position
+	#Find the menu's position
 	dim = win32gui.GetWindowRect(menu)
 	x = (dim[0]+dim[2])/2
 	y = dim[3]-15
